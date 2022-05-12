@@ -44,7 +44,6 @@ plt.axis("off")
 plt.show()
 ```
 ![词云图](https://github.com/TGF-B/Stress-Detection-NB/blob/main/Figure_1.png)
-
 ## 模型搭建
   - 更改状态标注栏
   ```python
