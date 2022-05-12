@@ -3,7 +3,7 @@
 ```python
 import pandas as pd
 import numpy as np
-data=pd.red_csv("https://raw.githubusercontent.com/amankharwal/Website-data/master/stress.csv")
+data=pd.red_csv("https://raw.githubusercontent.com/amankharwal/Website-data/master/stress.csv") #reddit上的评论集
 data.head()
 ```
 ```python
@@ -47,13 +47,13 @@ plt.show()
 ## 模型搭建
   - 更改状态标注栏
   ```python
-  data["label"] = data["label"].map({0: "No Stress", 1: "Stress"})
+  data["label"] = data["label"].map({0: "No Stress", 1: "Stress"})#将测试集中的状态表述由符号改成文字。
   data = data[["text", "label"]]
   print(data.head())
   ```
    - 数据集分割
    ```python
-   from sklearn.feature_extraction.text import CountVectorizer
+   from sklearn.feature_extraction.text import CountVectorizer #CounterVectorizer负责将文本中的词语转换为词频矩阵，它通过fit_transform函数计算各个词语出现的次数
   from sklearn.model_selection import train_test_split
   x = np.array(data["text"])
   y = np.array(data["label"])
@@ -76,3 +76,4 @@ data = cv.transform([user]).toarray()
 output = model.predict(data)
 print(output)
 ```
+程序运行后输入一段话（英文），模型即可判断你的情绪是否有焦虑倾向
